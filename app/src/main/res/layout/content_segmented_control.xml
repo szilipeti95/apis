@@ -15,11 +15,13 @@
         android:layout_marginTop="10dp"
         app:segmentCount="2">
         <hu.bme.jji6wk.segmentedcontrol.view.SegmentedButton
+            android:id="@+id/testButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="dummy"/>
 
         <hu.bme.jji6wk.segmentedcontrol.view.SegmentedButton
+            android:id="@+id/testButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="dummy"/>

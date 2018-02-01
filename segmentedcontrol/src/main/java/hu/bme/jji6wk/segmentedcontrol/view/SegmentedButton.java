@@ -2,7 +2,10 @@ package hu.bme.jji6wk.segmentedcontrol.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import hu.bme.jji6wk.segmentedcontrol.R;
@@ -38,12 +41,18 @@ public class SegmentedButton extends android.support.v7.widget.AppCompatButton {
         position = Position.middle;
         setUnselectedLayout();
 
-        this.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.setSelected(true);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (hasOnClickListeners()) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_UP:
+                    setSelected(true);
+                    break;
             }
-        });
+        }
+        return super.onTouchEvent(event);
     }
 
     public void setSelected(boolean selected){
